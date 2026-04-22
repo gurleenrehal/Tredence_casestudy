@@ -20,12 +20,11 @@ This project implements a **Self-Pruning Neural Network** that learns to **remov
 
 Each weight is paired with a **learnable gate**:
 
-\[
-W_{effective} = W \times G
-\]
+**W_effective = W × G**
 
 Where:
-- \( G = \sigma(\text{gate\_scores}) \in [0,1] \)
+-**G = sigmoid(gate_scores), G ∈ [0,1]**
+
 
 | Gate Value | Meaning |
 |-----------|--------|
@@ -45,16 +44,12 @@ Where:
 
 ## 📉 Loss Function
 
-\[
-\text{Total Loss} = \text{CrossEntropy} + \lambda \times \text{SparsityLoss}
-\]
+**Total Loss = CrossEntropyLoss + λ × SparsityLoss**
 
 ### Sparsity Loss:
 
-\[
-\text{SparsityLoss} = \sum g_i
-\]
-
+Sum of all gate values
+Encourages gates to move toward zero
 ---
 
 ## ❓ Why L1 Regularization Produces Sparsity
@@ -80,6 +75,7 @@ Where:
 ## 📉 Gate Value Distribution
 
 ![Gate Distribution](gate_distribution.png)
+
 
 ### 🔍 Observations
 
